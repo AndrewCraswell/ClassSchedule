@@ -532,23 +532,23 @@ namespace CTCClassSchedule.Common
 
         // Section footnotes
         foreach (string footnote in hpFootnotes.Distinct())
-	      {
-		      if (!string.IsNullOrWhiteSpace(footnote))
-		      {
-			      // skip any footnotes in the supplied ignore list (used to avoid duplicates)
-			      if (toIgnore == null || toIgnore.Count() <= 0 || !toIgnore.Contains(footnote))
-			      {
-				      footnotes.Append(footnote);
-			      }
-		      }
-	      }
+        {
+	  if (!string.IsNullOrWhiteSpace(footnote))
+	  {
+	    // skip any footnotes in the supplied ignore list (used to avoid duplicates)
+	    if (toIgnore == null || toIgnore.Count() <= 0 || !toIgnore.Contains(footnote))
+	    {
+	      footnotes.Append(footnote);
+	    }
+	  }
+        }
 
         // CMS footnotes
-		    //    ensure we don't have duplicates
+	// ensure we don't have duplicates
         if (!string.IsNullOrWhiteSpace(cmsFootnote) && !hpFootnotes.Contains(cmsFootnote))
-		    {
+	{
           footnotes.Append(cmsFootnote);
-		    }
+	}
 
         return footnotes.ToString().Trim();
       }
